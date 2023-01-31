@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar class="ion-padding-start">
+    <a href="/home">
+      <ion-icon name="arrow-back-circle"></ion-icon>
+    </a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="profile-body">
+    <div class="profile-header">
+      <h1>Profile</h1>
+    </div>
+
+    <div class="profile-info">
+      <div class="profile-img">
+        <div class="profile-img-box">
+          <img
+            src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60"
+            alt="profile-img"
+          />
+        </div>
+      </div>
+
+      <div class="profile-text">
+        <ul *ngFor="let data of userInfo">
+          <li class="profile-data">
+            <b> ชื่อ/นามสกุล : </b> {{ data.userName }}
+          </li>
+          <li class="profile-data">
+            <b> ตำแหน่ง : </b> {{ data.userPosition }}
+          </li>
+          <li class="profile-data">
+            <b> เลขที่ตำแหน่ง : </b> {{ data.userNum }}
+          </li>
+          <li class="profile-data"><b> ประเภท : </b> {{ data.userLevel }}</li>
+        </ul>
+      </div>
+
+      <div class="profile-btn-box">
+        <a href="/editprofile"> Edit Profile </a>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer>

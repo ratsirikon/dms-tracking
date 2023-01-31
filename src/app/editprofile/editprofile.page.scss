@@ -1,0 +1,137 @@
+$color1: #062226;
+$color2: #11535f;
+$color3: #36858a;
+$color4: #4fbdba;
+$color5: #aefeff;
+$color6: #edffff;
+
+ion-header {
+  ion-toolbar {
+    padding: 0 1rem;
+  }
+  a {
+    font-size: 2rem;
+    color: #11535f;
+  }
+}
+
+ion-content {
+  --background: #4fbdba;
+}
+
+.editprofile {
+  height: auto;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #36858a;
+  padding: 1rem;
+}
+
+.editprofile-header {
+  text-align: center;
+
+  h1 {
+    font-weight: bold;
+    color: $color6;
+  }
+}
+
+.editprofile-form {
+  form {
+    color: $color1;
+  }
+}
+
+.editprofile-img {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 2rem;
+}
+
+.editprofile-img-box {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+
+  img {
+    width: 100%;
+  }
+}
+
+.editprofile-img-input {
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.editprofile-img-btn {
+  padding: 1rem 2rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  background: #11535f;
+  color: #edffff;
+
+  display: flex;
+  align-items: center;
+
+  ion-icon {
+    font-size: 2rem;
+  }
+
+  label {
+    margin-left: 1rem;
+  }
+}
+
+.editprofile-img-btn:hover {
+  background: #edffff;
+  color: #11535f;
+}
+
+.editprofile-info {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 2rem;
+
+  label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  input {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    margin-top: 0.5rem;
+  }
+}
+
+.editprofile-btn {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 2rem;
+
+  button {
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    background: $color2;
+    border-radius: 5px;
+    color: $color6;
+  }
+
+  button:hover {
+    background: $color6;
+    color: $color2;
+  }
+}

@@ -1,0 +1,76 @@
+$color1: #062226;
+$color2: #11535f;
+$color3: #36858a;
+$color4: #4fbdba;
+$color5: #aefeff;
+$color6: #edffff;
+
+ion-header {
+  ion-toolbar {
+    padding: 0 1rem;
+  }
+  a {
+    font-size: 2rem;
+    color: #11535f;
+  }
+}
+
+ion-menu {
+  ion-content {
+    --background: #ffffff;
+  }
+}
+
+ion-content {
+  --background: #4fbdba;
+}
+
+.order-body {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: $color3;
+  padding: 1rem;
+
+  .order-header {
+    text-align: center;
+
+    h1 {
+      font-weight: bold;
+      color: $color6;
+    }
+  }
+
+  .order-list {
+    padding: 1rem;
+
+    ion-list {
+      background: none;
+
+      ion-item {
+        --border-radius: 10px;
+        --color: #11535f;
+        --color-hover: #edffff;
+        --background-hover: #4fbdba;
+        --background-hover-opacity: 1;
+
+        ion-label {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
+
+ion-footer {
+  ion-toolbar {
+    ion-col {
+      text-align: center;
+      ion-button {
+        --background: #36858a;
+        --color: #ffffff;
+      }
+    }
+  }
+}

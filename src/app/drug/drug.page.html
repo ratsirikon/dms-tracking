@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <a href="/order">
+      <ion-icon name="arrow-back-circle"></ion-icon>
+    </a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="drug-body">
+    <div class="drug-header">
+      <h1>รายการยา</h1>
+    </div>
+
+    <div class="drug-list">
+      <ion-list *ngFor="let data of drugData; ">
+        <ion-item button (click)="setOpen(true)">
+          <ion-label>
+              <b>ชื่อยา : </b>
+              {{ data.drugName }}
+              <br>
+              <b>จำนวน : </b>
+              {{ data.drugQty }}
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button (click)="addPhotoToGallery()">
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
+
+
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header class="modal-header">
+      <ion-toolbar>
+        <ion-title>ข้อมูลยา</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen(false)">Close</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content class="ion-padding">
+      <div class="detail">
+        <div class="detail-body">
+          <div class="drug-img">
+            <div class="drug-img-box">
+              <img
+                src="https://plus.unsplash.com/premium_photo-1672163163696-a477b6930c28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="detail-info">
+            <ul>
+              <li><b>ชื่อยา : </b> drugName</li>
+              <li><b>จำนวน : </b> drugQty</li>
+              <li><b>Codename : </b> drugCodename</li>
+              <li><b>วันหมดอายุ : </b> expiredDate</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

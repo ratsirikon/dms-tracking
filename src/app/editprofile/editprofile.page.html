@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar class="ion-padding-start">
+    <a href="/home">
+      <ion-icon name="arrow-back-circle"></ion-icon>
+    </a>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="editprofile">
+    <div class="editprofile-header">
+      <h1>Edit Profile</h1>
+    </div>
+
+    <div class="editprofile-form">
+      <form>
+        <div class="editprofile-img">
+          <div class="editprofile-img-box">
+            <img
+              src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=60"
+              alt="profile-img"
+            />
+          </div>
+        </div>
+
+        <div class="editprofile-img-input">
+          <div class="editprofile-img-btn">
+            <ion-icon name="image"></ion-icon>
+            <label for="editprofile-img"> Upload </label>
+          </div>
+          <input
+            type="file"
+            name="editprofile-img"
+            id="editprofile-img"
+            accept=".jpg, .jpeg, .png"
+          />
+        </div>
+
+        <div class="editprofile-info">
+          <label for="username">ชื่อ/นามสกุล</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="ชื่อ/นามสกุล"
+          />
+          <label for="position-name">ตำแหน่ง</label>
+          <input
+            type="text"
+            name="position-name"
+            id="position-name"
+            placeholder="ตำแหน่ง"
+          />
+          <label for="position-num">เลขตำแหน่ง</label>
+          <input
+            type="text"
+            name="position-num"
+            id="position-num"
+            placeholder="เลขตำแหน่ง"
+          />
+          <label for="user-type">ประเภท</label>
+          <input
+            type="text"
+            name="user-type"
+            id="user-type"
+            placeholder="ประเภท"
+          />
+        </div>
+
+        <div class="editprofile-btn">
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-footer>

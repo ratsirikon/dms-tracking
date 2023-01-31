@@ -1,0 +1,104 @@
+$color1: #062226;
+$color2: #11535f;
+$color3: #36858a;
+$color4: #4fbdba;
+$color5: #aefeff;
+$color6: #edffff;
+
+ion-header {
+  ion-toolbar {
+    a {
+      font-size: 2rem;
+      color: #11535f;
+    }
+  }
+}
+
+ion-content {
+  --background: #4fbdba;
+}
+
+.profile-body {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #36858a;
+  padding: 1rem;
+}
+
+.profile-header {
+  text-align: center;
+
+  h1 {
+    font-weight: bold;
+    color: $color6;
+  }
+}
+
+.profile-info {
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.profile-img {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 2rem;
+}
+
+.profile-img-box {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ffffff;
+
+  img {
+    width: 100%;
+  }
+}
+
+.profile-text {
+  margin-top: 2rem;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 2rem;
+    border-radius: 10px;
+    background: $color6;
+    color: $color2;
+  }
+}
+
+.profile-btn-box {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 2rem;
+
+  a {
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1rem;
+    background: $color2;
+    border-radius: 5px;
+    color: $color6;
+  }
+
+  a:hover {
+    background: $color6;
+    color: $color2;
+  }
+}

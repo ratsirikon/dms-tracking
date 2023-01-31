@@ -1,0 +1,169 @@
+$color1: #062226;
+$color2: #11535f;
+$color3: #36858a;
+$color4: #4fbdba;
+$color5: #aefeff;
+$color6: #edffff;
+
+ion-header {
+  ion-toolbar {
+    ion-buttons {
+      ion-menu-button {
+        --color: #36858a;
+      }
+    }
+
+    ion-segment {
+      ion-segment-button {
+        --indicator-color: #08a391;
+      }
+
+      /* Material Design styles */
+      ion-segment-button.md {
+        --color: #36858a;
+        --color-checked: #ffffff;
+        --background-checked: #36858a;
+        --indicator-height: 4px;
+      }
+    }
+  }
+}
+
+ion-content {
+  --background: #4fbdba;
+}
+
+.ward {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: $color3;
+  padding: 1rem;
+
+  .ward-header {
+    h1 {
+      text-align: center;
+      font-weight: bold;
+      color: $color6;
+    }
+  }
+
+  .ward-list {
+    ion-searchbar {
+      --background: #ffffff;
+      --icon-color: #36858a;
+    }
+
+    ion-list {
+      background: none;
+
+      ion-item {
+        --border-radius: 10px;
+        --color: #11535f;
+        --color-hover: #edffff;
+        --background-hover: #4fbdba;
+        --background-hover-opacity: 1;
+        margin: 0.5rem 0;
+      }
+
+      ion-button {
+        --color: #edffff;
+        --color-hover: #36858a;
+        --background: #36858a;
+        --background-hover: #edffff;
+        --background-hover-opacity: 1;
+      }
+    }
+  }
+}
+
+ion-fab {
+  position: fixed;
+  right: 40px;
+  bottom: 60px;
+}
+
+ion-fab-button {
+  --background: #11535f;
+  --background-hover: #11535f;
+  --color: #edffff;
+}
+
+ion-fab-button:hover {
+  --background: #36858a;
+  --color: #edffff;
+}
+
+ion-menu {
+  --height: 100%;
+
+  ion-header {
+    ion-title {
+      color: #11535f;
+      font-weight: bold;
+    }
+  }
+
+  ion-content {
+    --background: #ffffff;
+  }
+
+  .user-profile {
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background: #11535f;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .username-box {
+    color: #11535f;
+  }
+
+  .menu-box {
+    ion-list {
+      border-radius: 10px;
+      background: #36858a;
+      padding: 0 1rem;
+
+      ion-item {
+        --background: #edffff;
+        --color: #11535f;
+
+        border-radius: 5px;
+        margin: 1rem 0;
+
+        ion-icon {
+          color: #11535f;
+        }
+
+        ion-label {
+          margin-left: 1rem;
+        }
+      }
+
+      ion-item:hover {
+        --background: #11535f;
+        --color: #edffff;
+
+        ion-icon {
+          color: #edffff;
+        }
+      }
+    }
+  }
+}
