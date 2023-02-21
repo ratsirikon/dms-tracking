@@ -1,0 +1,197 @@
+<div class="dashboard">
+  <div class="dashboard-container">
+    <div class="back-btn">
+      <a href="/ward">
+        <i class="bi bi-arrow-left-circle"></i>
+        Back
+      </a>
+    </div>
+
+    <!-- แถบ status bar 6 ปุ่ม -->
+    <div class="status-bar">
+      <div class="grid text-center">
+        <div class="g-col-6 g-col-md-2">
+          <div class="card card-1" (click)="searchByState(0)">
+            <div class="card-body">
+              <p>รอเช็คอิน</p>
+              <span>{{ orderStateCount[0] }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-col-6 g-col-md-2">
+          <div class="card card-2" (click)="searchByState(2)">
+            <div class="card-body">
+              <p>กำลังจัดยา</p>
+              <span>{{ orderStateCount[1] }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-col-6 g-col-md-2">
+          <div class="card card-3" (click)="searchByState(3)">
+            <div class="card-body">
+              <p>รอตรวจสอบ</p>
+              <span>{{ orderStateCount[2] }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-col-6 g-col-md-2">
+          <div class="card card-4" (click)="searchByState(4)">
+            <div class="card-body">
+              <p>ตรวจสอบแล้ว</p>
+              <span>{{ orderStateCount[3] }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-col-6 g-col-md-2">
+          <div class="card card-5" (click)="searchByState(6)">
+            <div class="card-body">
+              <p>รอนำส่ง</p>
+              <span>{{ orderStateCount[4] }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="g-col-6 g-col-md-2">
+          <div class="card card-6" (click)="searchByState(8)">
+            <div class="card-body">
+              <p>จัดส่งสำเร็จ</p>
+              <span>{{ orderStateCount[5] }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- แถบค้นหา -->
+    <div class="search-bar">
+      <form>
+        <div class="grid">
+          <div class="g-col-12 g-col-md-8 grid" style="row-gap: 1rem">
+            <div class="g-col-12 g-col-md-6">
+              <div class="input-group">
+                <span class="input-group-text">วอร์ด</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputWard"
+                  name="inputWard"
+                  placeholder="เลือกวอร์ด"
+                  list="browsers"
+                  required
+                  value="{{ wardValue }}"
+                  [(ngModel)]="wardValue"
+                />
+              </div>
+            </div>
+
+            <div class="g-col-12 g-col-md-6">
+              <div class="input-group">
+                <span class="input-group-text">วันที่</span>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="inputDate"
+                  name="inputDate"
+                  max="{{ today | date : 'yyyy-MM-dd' }}"
+                  value="{{ date | date : 'yyyy-MM-dd' : 'UTC+7' }}"
+                  [(ngModel)]="date"
+                  (change)="clearSearch()"
+                />
+              </div>
+            </div>
+
+            <div class="g-col-12 g-col-md-12">
+              <div class="input-group">
+                <span class="input-group-text">ชื่อ - สกุล หรือ HN</span>
+                <input
+                  type="search"
+                  placeholder="ชื่อ - สกุล หรือ HN"
+                  class="form-control"
+                  id="searchText"
+                  name="searchText"
+                  autocomplete="on"
+                  [(ngModel)]="searchText"
+                  (keyup)="searchByText()"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="g-col-12 g-col-md-4 grid">
+            <button type="submit" class="g-col-6 search-btn">ค้นหา</button>
+            <button type="submit" class="g-col-6 show-btn">แสดงทั้งหมด</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- ตารางทั้งหมด -->
+    <div class="dashboard-table">
+      <div class="dashboard-table-container">
+        <div class="table-scroll">
+          <table>
+            <thead class="table-head">
+              <tr>
+                <th>No.</th>
+                <th>วันที่เช็คอิน</th>
+                <th>HN</th>
+                <th>ชื่อ - สกุล</th>
+                <th>สถานะ</th>
+                <th>เลขที่ใบสั่งยา</th>
+                <th>เวลารอเฉลี่ย</th>
+              </tr>
+            </thead>
+
+            <tbody class="table-body" *ngIf="searchStatus == false">
+              <tr
+                *ngFor="let data of dashboardData; index as indexNum"
+                (click)="openModal(data.hn, data.order_number)"
+              >
+                <td>{{ indexNum + 1 }}</td>
+                <td>{{ data.order_date | date : "dd/MM/yyyy" }}</td>
+                <td>{{ data.hn }}</td>
+                <td>{{ data.patient_name }}</td>
+                <td>{{ data.state_description }}</td>
+                <td>{{ data.order_number }}</td>
+                <td>{{ data.average_wait }} นาที</td>
+              </tr>
+            </tbody>
+
+            <tbody class="table-body" *ngIf="searchStatus == true">
+              <tr
+                *ngFor="let data of _dashboardData; index as indexNum"
+                (click)="openModal(data.hn, data.order_number)"
+              >
+                <td>{{ indexNum + 1 }}</td>
+                <td>{{ data.order_date | date : "dd/MM/yyyy" }}</td>
+                <td>{{ data.hn }}</td>
+                <td>{{ data.patient_name }}</td>
+                <td>{{ data.state_description }}</td>
+                <td>{{ data.order_number }}</td>
+                <td>{{ data.average_wait }} นาที</td>
+              </tr>
+            </tbody>
+
+            <tbody>
+              <tr *ngIf="dashboardData.length == 0 && searchStatus == false">
+                <td colspan="8" style="text-align: center; padding: 1rem">
+                  ไม่พบข้อมูลที่ค้นหา
+                </td>
+              </tr>
+
+              <tr *ngIf="_dashboardData.length == 0 && searchStatus == true">
+                <td colspan="8" style="text-align: center; padding: 1rem">
+                  ไม่พบข้อมูลที่ค้นหา
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

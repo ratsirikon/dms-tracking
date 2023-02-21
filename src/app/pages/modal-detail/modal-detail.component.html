@@ -1,0 +1,125 @@
+<div class="modal-container">
+  <div class="modal-header">
+    <h1 class="modal-title">รายละเอียดการจ่ายยา</h1>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="activeModal.dismiss('Cross click')"
+    ></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="modal-patient" *ngIf="detailData[0].order_number != null">
+      <p><b> เลขที่ใบสั่งยา : </b> {{ detailData[0].order_number }}</p>
+      <p><b> HN : </b> {{ detailData[0].hn }}</p>
+      <p><b> ชื่อ - สกุล : </b> {{ detailData[0].patient_name }}</p>
+      <p>
+        <b>วันที่เช็คอิน : </b>
+        {{ detailData[0].checkindate | date : "dd/MM/yyyy" }}
+      </p>
+      <p><b>เวลา : </b> {{ detailData[0].checkintime }}</p>
+      <p><b>จำนวนยาทั้งหมด : </b> {{ detailData.length }}</p>
+    </div>
+
+    <div class="modal-tracking">
+      <div *ngIf="detailData[0].order_number != null">
+
+        <ngb-accordion
+          #acc="ngbAccordion"
+          activeIds="ngb-panel-0"
+          *ngFor="let data of detailData; index as i"
+        >
+          <ngb-panel>
+            <ng-template ngbPanelTitle>
+              <span>
+                <b> {{ data.genericname }} {{ data.strength }} </b>
+                <br />
+                สถานะ : {{ data.state_description }}
+              </span>
+            </ng-template>
+
+            <ng-template ngbPanelContent>
+              <div class="tracking-header">
+                <p><b> หมายเลขยา : </b> {{ data.icode }}</p>
+                <p>
+                  <b> ชื่อยา : </b> {{ data.genericname }} {{ data.strength }}
+                </p>
+                <p><b> จำนวน : </b> {{ data.qty }} {{ data.units }}</p>
+                <p>
+                  <b> วันหมดอายุ : </b>
+                  {{ data.expiredate | date : "dd/MM/yyyy" }}
+                </p>
+                <div class="drug-img">
+                  <img [src]="showImage(data.drug_image)" alt="drug_image" />
+                </div>
+              </div>
+
+              <div class="popup-btn">
+                <button class="btn btn-outline-primary" (click)="openPopup()">
+                  ดูภาพขนาดใหญ่
+                </button>
+              </div>
+
+              <div class="modal-timeline">
+                <div class="timeline">
+                  <div class="tracking-timeline-first">
+                    <div class="timeline-left">
+                      <div class="timeline-icon">
+                        <i class="bi bi-geo-alt-fill"></i>
+                      </div>
+                      <!-- <span class="timeline-line"></span> -->
+                    </div>
+
+                    <div class="timeline-right">
+                      <div class="timeline-desc">
+                        <p><b> Example : </b>"ตัวอย่าง"</p>
+                        <p><b> อินเดกส์ : </b>"FIRST"</p>
+                        <p><b> สถานะ : </b>"รอเช็คอิน"</p>
+                        <p>
+                          <b> วันที่ / เวลา : </b>
+                          {{ data.checkindate | date : "dd/MM/yyyy" }}
+                          {{ data.checkintime }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="tracking-timeline" *ngFor="let item of iconList">
+                    <div class="timeline-left">
+                      <div class="timeline-icon">
+                        <!-- <i class=" {{ icons[1 + detailData[0].order_state] }} "></i> -->
+                        <i class=" {{ iconList[0 + order_state] }} "></i>
+                      </div>
+                      <span class="timeline-line"></span>
+                    </div>
+
+                    <div class="timeline-right">
+                      <div class="timeline-desc">
+                        <p>
+                          <b> order_state : </b>
+                          {{ detailData[0].order_state }}
+                        </p>
+                        <p>
+                          <b> state_description : </b>
+                          {{ data.state_description }}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn" (click)="activeModal.close('Close click')">
+    ปิด
+  </button>
+</div>

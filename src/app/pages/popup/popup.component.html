@@ -1,0 +1,15 @@
+<div class="popup">
+  <ngb-carousel class="popup-carousel">
+    <ng-template ngbSlide *ngFor="let data of detailData; index as i">
+      <div class="picsum-img-wrapper">
+        <div class="img-wrapper">
+          <img [src]="showImage(data.drug_image)" alt="Drug Image Slides" />
+        </div>
+      </div>
+      <div class="carousel-caption caption-text">
+        <p><b> หมายเลขยา : </b> {{ data.icode }}</p>
+        <p><b> ชื่อยา : </b> {{ data.genericname }} {{ data.strength }}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>

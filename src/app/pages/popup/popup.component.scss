@@ -1,0 +1,33 @@
+$color1: #062226;
+$color2: #11535f;
+$color3: #36858a;
+$color4: #4fbdba;
+$color5: #aefeff;
+$color6: #edffff;
+
+.caption-text {
+  font-size: 1.6rem;
+  text-align: start;
+  padding-left: 4rem;
+  color: #000000;
+  background-color: rgba(237, 255, 255, 0.6);
+}
+
+.img-wrapper {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100%;
+  }
+}
+
+.popup-carousel {
+  background-color: #000000;
+  border-radius: 5px;
+}

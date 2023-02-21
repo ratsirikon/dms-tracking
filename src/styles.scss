@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+$color1: #062226;
+$color2: #11535f;
+$color3: #36858a;
+$color4: #4fbdba;
+$color5: #aefeff;
+$color6: #edffff;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: Prompt-Regular;
+  src: url('../src/assets/fonts/Prompt-Regular.ttf');
+}
+
+body {
+  font-family: "Prompt-Regular" !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";

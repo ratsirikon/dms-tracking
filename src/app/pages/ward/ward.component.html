@@ -1,0 +1,45 @@
+<div class="ward">
+  <div class="ward-container">
+    <div class="ward-icon">
+      <i class="bi bi-building-fill"></i>
+    </div>
+
+    <div class="ward-header">
+      <h1>DMS Tracking Dashboard</h1>
+    </div>
+
+    <div class="ward-selection">
+      <form
+        ngNativeValidate
+        #simpleForm="ngForm"
+        (ngSubmit)="goToDashboard()"
+      >
+        <div class="ward-input-container">
+          <div class="ward-input-box">
+            <label>วอร์ด : </label>
+            <input
+              class="input-ward"
+              id="inputWard"
+              name="inputWard"
+              type="text"
+              placeholder="เลือกวอร์ด"
+              list="browsers"
+              required
+              [(ngModel)]="wardValue"
+            />
+            <datalist id="browsers">
+              <option
+                *ngFor="let item of wardArray; index as i"
+                value="{{ i + 1 }}"
+              ></option>
+            </datalist>
+          </div>
+
+          <div class="ward-input-btn">
+            <button type="submit">ค้นหา</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

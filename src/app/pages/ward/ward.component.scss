@@ -1,0 +1,96 @@
+$color1: #062226;
+$color2: #11535f;
+$color3: #36858a;
+$color4: #4fbdba;
+$color5: #aefeff;
+$color6: #edffff;
+
+.ward {
+  width: 100vw;
+  height: 100vh;
+
+  background: $color2;
+}
+
+.ward-container {
+  background: $color6;
+  color: $color2;
+
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ward-icon {
+  font-size: 8rem;
+  color: $color2;
+  margin-top: 5rem;
+}
+
+.ward-header {
+  margin-top: 0rem;
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}
+
+.ward-selection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.ward-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ward-input-box {
+  display: flex;
+
+  label {
+    padding: 1rem 2rem;
+    border-radius: 10px 0 0 10px;
+    background: $color2;
+    color: $color6;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  input {
+    width: 160px;
+    padding: 0 1rem;
+    border: 2px solid $color2;
+    border-radius: 0 10px 10px 0;
+  }
+}
+
+.ward-input-btn {
+  margin-top: 1rem;
+  width: 100%;
+
+  button {
+    width: 100%;
+    padding: 1rem 2rem;
+    border: 2px solid $color2;
+    border-radius: 10px;
+    background: $color2;
+    color: $color6;
+  }
+
+  button:hover {
+    border: 2px solid $color1;
+    background: $color1;
+  }
+}
+
